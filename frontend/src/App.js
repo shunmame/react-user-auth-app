@@ -4,7 +4,6 @@ import firebase from "firebase/compat/app";
 import User from "./User";
 import Login from "./Login";
 
-console.log(process.env.REACT_APP_FIREBASE_API_KEY)
 firebase.initializeApp({
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
