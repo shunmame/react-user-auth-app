@@ -1,4 +1,3 @@
-import './User.css';
 import { useState,useEffect } from 'react'
 
 function User() {
