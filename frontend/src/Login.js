@@ -1,6 +1,8 @@
 import { auth, provider } from './firebase';
-import { signInWithPopup } from 'firebase/auth';
-import React from 'react'
+import { signInWithPopup, signInWithRedirect, onAuthStateChanged } from 'firebase/auth';
+import React from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   return (
@@ -13,8 +15,18 @@ function Login() {
 export default Login
 
 function SiginButton(){
+    const navigate = useNavigate();
+
     const signInWithGoogle = () => {
-        signInWithPopup(auth, provider)
+        signInWithPopup(auth, provider).then((result)  => {
+            console.log(result);
+            console.log(auth)
+            navigate("/user");
+        })
+        // signInWithRedirect(auth, provider).then((result)  => {
+        //     console.log(result);
+        //     navigate("/user");
+        // })
     };
 
     return (
